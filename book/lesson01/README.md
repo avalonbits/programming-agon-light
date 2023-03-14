@@ -51,6 +51,15 @@ The main improvements of the eZ80 over the Z80 are:
 - Full compatibility mode with Z80, with code running in a 64k segment and switching
   into eZ80 mode to perform banking.
 
+When writting assembly programs for the Agon Light, you have to choose which mode
+you want your program to run in. This is done using the `.assume ADL` directive,
+with `0` being Z80 mode (limited to 64k segment, 8/16 bit registers) and `1` being
+in eZ80 mode (24-bit address space, 8/24 bit registers).
+
+You also need to specify where the program should be loaded in memory. MOS
+specifies that user memory starts at addres 0x40000, so the first two lines of our
+assembly programs defines the run mode and the memory loading address.
+
 ```assembly
     ; Tell the assembler we want eZ80 24-bit address mode.
     .assume ADL = 1
