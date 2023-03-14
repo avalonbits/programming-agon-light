@@ -36,13 +36,6 @@ Pretty short, tough not as short as the C version. Let's understand  what is hap
 on each line/block of code.
 
 ## The eZ80 run mode and user memory.
-```assembly
-    ; Tell the assembler we want eZ80 24-bit address mode.
-    .assume ADL = 1
-
-    ; User memory starts at $040000
-    .org $40000
-```
 
 The Agon Light uses an [eZ80F92 microcontroller](http://www.zilog.com/docs/ez80acclaim/ps0153.pdf)
 as its CPU. It is a modern version of the venerable Z80 used in
@@ -57,3 +50,12 @@ The main improvements of the eZ80 over the Z80 are:
   the need for banking.
 - Full compatibility mode with Z80, with code running in a 64k segment and switching
   into eZ80 mode to perform banking.
+
+```assembly
+    ; Tell the assembler we want eZ80 24-bit address mode.
+    .assume ADL = 1
+
+    ; User memory starts at $040000
+    .org $40000
+```
+
